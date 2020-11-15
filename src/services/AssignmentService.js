@@ -1,12 +1,15 @@
-const { default: httpCommon } = require("../http-common");
-import http from "../http-common";
+import http from "../api";
 
 const getAll = () => {
-  return http.get("/assignments");
+  return http.get(`/assignments`);
 };
 
 const get = (id) => {
   return http.get(`/assignments/${id}`);
+};
+
+const getBySubject = (subject) => {
+  return http.get(`/assignments?subject=${subject}`);
 };
 
 const create = (data) => {
@@ -28,6 +31,7 @@ const removeAll = () => {
 export default {
   getAll,
   get,
+  getBySubject,
   create,
   update,
   remove,
